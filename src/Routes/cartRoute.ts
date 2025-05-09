@@ -1,6 +1,8 @@
 import express, { Request } from "express";
 import {
   addItemToCart,
+  clearCart,
+  deleteItemInCart,
   getActiveCartForUser,
   updateItemIoCart,
 } from "../Services/cartServices";
@@ -29,6 +31,24 @@ router.put("/items", validateJWT, async (req: ExtendRequest, res) => {
   const userId = req.user._id;
   const { productId, quantity } = req.body;
   const response = await updateItemIoCart({ userId, productId, quantity });
+  res.status(response.statusCode).send(response.data);
+});
+
+router.delete(
+  "/items/:productId",
+  validateJWT,
+  async (req: ExtendRequest, res) => {
+    const userId = req.user._id;
+    const { productId } = req.params;
+    const response = await deleteItemInCart({ userId, productId });
+    res.status(response.statusCode).send(response.data);
+  }
+);
+
+router.delete("/", validateJWT, async (req: ExtendRequest, res) => {
+  const userId = req.user._id;
+  const { productId } = req.params;
+  const response = await clearCart({ userId });
   res.status(response.statusCode).send(response.data);
 });
 
