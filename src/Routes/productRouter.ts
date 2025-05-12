@@ -4,8 +4,12 @@ import { getAllProducts } from "../Services/procuctServices";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const products = getAllProducts;
-  res.status(200).send(products);
+  try {
+    const products = getAllProducts;
+    res.status(200).send(products);
+  } catch {
+    res.status(500).send("Somthing went wrong!");
+  }
 });
 
 export default router;
