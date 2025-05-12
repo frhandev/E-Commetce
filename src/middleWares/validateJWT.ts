@@ -21,32 +21,28 @@ const validateJWT = (req: ExtendRequest, res: Response, next: NextFunction) => {
     return;
   }
 
-  jwt.verify(
-    token,
-    "9k60ekklbIcdkEwfoIrZoqyFqihyHkcNr68bRf2LnjILT86rwAGYohkwm3iwsBQp",
-    async (err, payload) => {
-      if (err) {
-        res.status(403).send("Invalid token!");
-        return;
-      }
-
-      if (!payload) {
-        res.status(403).send("Invalid token paylod!");
-        return;
-      }
-
-      const userPayload = payload as {
-        firstName: string;
-        lastName: string;
-        email: string;
-      };
-
-      //Fetch user from database
-      const user = await userModel.findOne({ email: userPayload.email });
-      req.user = user;
-      next();
+  jwt.verify(token, process.env.MONGO_URI || "", async (err, payload) => {
+    if (err) {
+      res.status(403).send("Invalid token!");
+      return;
     }
-  );
+
+    if (!payload) {
+      res.status(403).send("Invalid token paylod!");
+      return;
+    }
+
+    const userPayload = payload as {
+      firstName: string;
+      lastName: string;
+      email: string;
+    };
+
+    //Fetch user from database
+    const user = await userModel.findOne({ email: userPayload.email });
+    req.user = user;
+    next();
+  });
 };
 
 export default validateJWT;
