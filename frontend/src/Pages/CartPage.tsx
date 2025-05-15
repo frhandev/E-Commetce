@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Container from "@mui/material/Container";
-import { useCart } from "../context/Cart/CartContext";
+import { useCart } from "../Context/Cart/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {

@@ -4,8 +4,8 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useRef, useState } from "react";
-import { BASE_URL } from "../constants/baseUrl";
-import { useAuth } from "../context/Auth/AuthContext";
+import { BASE_URL } from "../Constants/baseUrl";
+import { useAuth } from "../Context/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {

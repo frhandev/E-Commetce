@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { CartItem } from "../../types/CartItem";
-import { BASE_URL } from "../../constants/baseUrl";
+import { BASE_URL } from "../../Constants/baseUrl";
 import { useAuth } from "../Auth/AuthContext";
 
 const CartProvider: FC<PropsWithChildren> = ({ children }) => {

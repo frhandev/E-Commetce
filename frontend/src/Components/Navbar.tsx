@@ -11,10 +11,10 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import ShoppingCart from "@mui/icons-material/ShoppingCart";
-import { useAuth } from "../context/Auth/AuthContext";
+import { useAuth } from "../Context/Auth/AuthContext";
 import { Badge, Button, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/Cart/CartContext";
+import { useCart } from "../Context/Cart/CartContext";
 
 function Navbar() {
   const { username, isAuthenticated, logout } = useAuth();

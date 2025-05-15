@@ -2,12 +2,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import { useCart } from "../context/Cart/CartContext";
+import { useCart } from "../Context/Cart/CartContext";
 import { TextField } from "@mui/material";
 import { useRef } from "react";
-import { BASE_URL } from "../constants/baseUrl";
+import { BASE_URL } from "../Constants/baseUrl";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/Auth/AuthContext";
+import { useAuth } from "../Context/Auth/AuthContext";
 
 const CheckoutPage = () => {
   const { cartItems, totalAmount } = useCart();
